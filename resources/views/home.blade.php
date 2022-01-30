@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+    <title>Restaurant Website</title>
 <!--
     
 TemplateMo 558 Klassy Cafe
@@ -87,7 +87,11 @@ https://templatemo.com/tm-558-klassy-cafe
                             @if (Route::has('login'))
                                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
-                                <li><a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></li>
+                                <li>
+                                    <x-app-layout>
+                                        
+                                    </x-app-layout>
+                                </li>
                             @else
                                 <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
 

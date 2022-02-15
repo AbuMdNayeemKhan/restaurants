@@ -26,7 +26,7 @@ Route::get('/fooddelete/{id}', [AdminController::class, "fooddelete"]);
 
 Route::get('/foodedit/{id}', [AdminController::class, "foodedit"]);
 
-Route::post('/uploadfood', [AdminController::class, "uploadfood"]);
+Route::post('/foodupdate/{id}', [AdminController::class, "foodupdate"]);
 
 Route::get('/deleteusers/{id}', [AdminController::class, "deleteusers"]);
 

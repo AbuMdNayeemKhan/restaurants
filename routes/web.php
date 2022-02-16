@@ -20,13 +20,18 @@ Route::get('/', [HomeController::class, "index"]);
 
 Route::get('/users', [AdminController::class, "users"]);
 
+// Food menu start here
 Route::get('/foodmenu', [AdminController::class, "foodmenu"]);
-
+Route::post('/uploadfood', [AdminController::class, "uploadfood"]);
 Route::get('/fooddelete/{id}', [AdminController::class, "fooddelete"]);
-
 Route::get('/foodedit/{id}', [AdminController::class, "foodedit"]);
-
 Route::post('/foodupdate/{id}', [AdminController::class, "foodupdate"]);
+
+// Reservation Routs
+Route::post('/reservation', [AdminController::class, "reservation"]);
+Route::get('/adminreservation', [AdminController::class, "adminreservation"]);
+Route::get('/deletereservation/{id}', [AdminController::class, "deletereservation"]);
+
 
 Route::get('/deleteusers/{id}', [AdminController::class, "deleteusers"]);
 

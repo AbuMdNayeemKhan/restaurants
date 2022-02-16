@@ -8,6 +8,8 @@ use App\Models\User;
 
 use App\Models\Food;
 
+use App\Models\Reservation;
+
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
@@ -37,13 +39,11 @@ class AdminController extends Controller
         $image = $request->image;
         $imagename = time().'.'.$image->getClientOriginalExtension();
         $request->image->move('foodimage', $imagename);
-
         $data->image = $imagename;
         $data->title = $request->title;
         $data->price = $request->price;
         $data->discription = $request->discription;
         $data->save();
-
         return redirect()->back();
     }
 
@@ -70,14 +70,38 @@ class AdminController extends Controller
         $image = $request->image;
         $imagename = time().'.'.$image->getClientOriginalExtension();
         $request->image->move('foodimage', $imagename);
-
         $data->image = $imagename;
         $data->title = $request->title;
         $data->price = $request->price;
         $data->discription = $request->discription;
         $data->save();
-
         return redirect()->back();
+    }
 
+    // Reservation data send for Mysql
+    public function reservation(Request $request){
+        $data = new Reservation;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->guest = $request->guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+        $data->message = $request->message;
+        $data->save();
+        return redirect()->back();
+    }
+
+    // Resservation data show in admin panel
+    public function adminreservation(){
+        $data = reservation::all();
+        return view('admin.adminreservation', compact("data"));
+    }
+
+    // Delete reservation
+    public function deletereservation($id){
+        $data = reservation::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }

@@ -10,6 +10,8 @@ use App\Models\Food;
 
 use App\Models\Reservation;
 
+use App\Models\shafes;
+
 use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
@@ -104,4 +106,50 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    // Display shafes
+    public function shafes(){
+    $data = Shafes::all();
+    return view('admin.adminshafes', compact("data"));
+    }
+    
+    // Add new shefs
+    public function uploadchef(Request $request){
+        $data = new shafes;
+        $image = $request->image;
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('shefsimage', $imagename);
+        $data->image = $imagename;
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+        $data->save();
+        return redirect()->back();
+    }
+
+    // Edit Chef item
+    public function editchef($id){
+        $data = shafes::find($id);
+        return view('admin.editchef', compact("data"));
+    }
+
+    // Update Chef
+    public function updatechef(Request $request, $id){
+        $data = shafes::find($id);
+        $image = $request->image;
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('shefsimage', $imagename);
+        $data->image = $imagename;
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+        $data->save();
+        return redirect()->back();
+    }
+
+    // Delete Chef
+    public function deletechef($id){
+        $data = shafes::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
 }

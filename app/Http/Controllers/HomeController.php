@@ -10,11 +10,14 @@ use App\Models\Food;
 
 use App\Models\User;
 
+use App\Models\shafes;
+
 class HomeController extends Controller
 {
     public function index(){
         $data = Food::all();
-        return view("home", compact("data"));
+        $shafesdata = shafes::all();
+        return view("home", compact("data", "shafesdata"));
 
     }
     public function redirect(){

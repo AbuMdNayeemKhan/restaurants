@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, "index"]);
 
 Route::get('/users', [AdminController::class, "users"]);
 
-// Food menu start here
+// Food menu Routs
 Route::get('/foodmenu', [AdminController::class, "foodmenu"]);
 Route::post('/uploadfood', [AdminController::class, "uploadfood"]);
 Route::get('/fooddelete/{id}', [AdminController::class, "fooddelete"]);
@@ -32,6 +32,12 @@ Route::post('/reservation', [AdminController::class, "reservation"]);
 Route::get('/adminreservation', [AdminController::class, "adminreservation"]);
 Route::get('/deletereservation/{id}', [AdminController::class, "deletereservation"]);
 
+// Shafes Routs 
+Route::get('/shafes', [AdminController::class, "shafes"]);
+Route::post('/uploadchef', [AdminController::class, "uploadchef"]);
+Route::get('/editchef/{id}', [AdminController::class, "editchef"]);
+Route::post('/updatechef/{id}', [AdminController::class, "updatechef"]);
+Route::get('/deletechef/{id}', [AdminController::class, "deletechef"]);
 
 Route::get('/deleteusers/{id}', [AdminController::class, "deleteusers"]);
 

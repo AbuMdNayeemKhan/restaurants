@@ -27,7 +27,7 @@
                       <td>{{$data->name}}</td>
                       <td>{{$data->email}}</td>
                        @if($data->usertype=="0")
-                      <td><a href="{{url('/deleteusers',$data->id)}}" class="btn btn-danger">Delete</a></td>
+                      <td><a href="{{url('/deleteusers',$data->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure? You deleteing user {{$data->name}}?')">Delete</a></td>
                       @else
                         <td><a class="btn btn-warning">Not Deletable</a></td>
                       @endif

@@ -39,8 +39,8 @@
                         <td>{{$data->time}}</td>
                         <td>{{$data->message}}</td>
                         <td>
-                          <a class="btn btn-success" onclick="return confirm('Are you sure? {{$data->name}}s order has been completed?')" href="{{url('/deletereservation', $data->id)}}">Done</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure? You canceling {{$data->name}}s Order!')" href="{{url('/deletereservation', $data->id)}}">Cancel</a>
+                          <a class="btn btn-success" onclick="return confirm('Are you sure? {{$data->name}}s order has been completed.')" href="{{url('/deletereservation', $data->id)}}">Done</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure? You are canceling {{$data->name}}s Order!')" href="{{url('/deletereservation', $data->id)}}">Cancel</a>
                         </td>
                     </tr>
                   @endforeach
